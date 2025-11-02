@@ -1,6 +1,6 @@
-# HTML/CSS/JavaScript Project Boilerplate
+# Particles - Mouse Trail Effect
 
-A simple, clean boilerplate for getting started with HTML, CSS, and JavaScript projects using Tailwind CSS.
+An interactive particle chain animation that follows your mouse cursor. Particles are linked in a chain where each particle smoothly follows the previous one, creating a beautiful trailing effect.
 
 ## Project Structure
 
@@ -8,7 +8,7 @@ A simple, clean boilerplate for getting started with HTML, CSS, and JavaScript p
 .
 ├── index.html    # Main HTML file
 ├── styles.css    # Custom styles (if needed)
-├── script.js     # JavaScript file
+├── script.js     # Particle animation logic
 └── README.md     # This file
 ```
 
@@ -19,6 +19,7 @@ A simple, clean boilerplate for getting started with HTML, CSS, and JavaScript p
    - Python: `python -m http.server 8000`
    - Node.js: `npx http-server`
    - VS Code: Use the Live Server extension
+3. Move your mouse around to see the particle chain follow your cursor!
 
 ## Technologies
 
@@ -26,17 +27,26 @@ A simple, clean boilerplate for getting started with HTML, CSS, and JavaScript p
 - **Vanilla JavaScript**: No framework dependencies
 - **HTML5**: Modern semantic HTML
 
+## How It Works
+
+- **100 particles** are created and positioned randomly on the screen
+- Each particle has a **speed** attribute (`data-speed`) that determines how quickly it follows
+- The **first particle** follows your mouse cursor directly
+- Each subsequent particle follows the **previous particle** in the chain
+- Particles move smoothly using a lerp-like interpolation formula: `position + (target - position) / speed`
+
 ## Customization
 
-- Edit `index.html` to modify the HTML structure and add Tailwind classes
-- Edit `styles.css` to add custom styles if needed (Tailwind handles most styling)
-- Edit `script.js` to add JavaScript functionality
+- **Particle count**: Change `i < 100` in `script.js` to adjust the number of particles
+- **Particle speed**: Modify the speed calculation `1 + i / 10` to change how particles move
+- **Particle appearance**: Edit the Tailwind classes in `script.js` (currently `w-2 h-2 bg-red-500 rounded`)
+- **Animation speed**: Adjust the interval `16` (milliseconds) for different frame rates
 
 ## Features
 
-- Responsive design with Tailwind utilities
-- Modern, utility-first CSS approach
-- Clean, semantic HTML structure
-- Basic JavaScript interactivity example
+- Smooth mouse-following particle chain
+- Configurable particle count and speeds
+- Responsive design with Tailwind CSS
+- 60fps animation (16ms interval)
 - Cross-browser compatible
 
